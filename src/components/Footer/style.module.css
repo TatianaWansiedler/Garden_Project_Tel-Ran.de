@@ -1,0 +1,57 @@
+.info {
+  max-width: 1345px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 140px;
+}
+.contact,
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 50%;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+}
+.tel_number {
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+}
+.icon_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+}
+.link_address {
+  font-weight: 400;
+  font-size: 40px;
+  text-decoration-line: underline;
+  color: black;
+}
+.schedule {
+  font-weight: 500;
+  font-size: 18px;
+}
+.schedule_time {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.5;
+}
+.map {
+  max-width: 1345px;
+  margin: 0 auto;
+}

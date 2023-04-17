@@ -1,0 +1,15 @@
+.categories_page {
+  max-width: 1345px;
+  margin: 40px auto 90px;
+}
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  margin: 60px 0;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  gap: 30px;
+}

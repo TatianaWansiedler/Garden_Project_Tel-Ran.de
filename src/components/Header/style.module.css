@@ -1,0 +1,41 @@
+.header {
+  max-width: 1380px;
+  height: 75px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 80px 150px auto 50px;
+  gap: 50px;
+  align-items: center;
+  justify-items: center;
+}
+.catalog_btn {
+  width: 125px;
+  height: 50px;
+  background: #339933;
+  border: 2px solid #339933;
+  border-radius: 5px;
+  padding: 15px 30px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.nav {
+  display: flex;
+  gap: 50px;
+  justify-self: end;
+  padding: 0 50px;
+}
+.nav_link {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+  padding: 5px 0;
+}
+.active{
+    border-bottom: 2px solid gray;
+}
+.basket_icon{
+    cursor: pointer;
+}

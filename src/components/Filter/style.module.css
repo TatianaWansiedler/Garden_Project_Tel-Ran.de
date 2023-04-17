@@ -1,0 +1,45 @@
+.filter_form {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+.label {
+  font-weight: 600;
+  font-size: 20px;
+}
+.inputs_price,
+.chackbox,
+.sort_options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.inputs_price input {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+  outline: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+.inputs_price input::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  color: #acacac;
+}
+.chackbox input {
+  border: 1px solid #000000;
+  border-radius: 7px;
+  width: 40px;
+  height: 40px;
+}
+.sort_options select {
+  border: 1px solid #000000;
+  border-radius: 7px;
+  width: 220px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #797979;
+}
