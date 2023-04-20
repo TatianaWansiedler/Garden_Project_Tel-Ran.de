@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Filter from '../../components/Filter/'
 import { useEffect } from 'react';
-import { productsResetActions } from '../../store/reducer/productsReducer';
+import { productsResetFilterAction } from '../../store/reducer/productsReducer';
 
 
 const ProductsPage = () => {
@@ -13,14 +13,14 @@ const ProductsPage = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(productsResetActions())
-    },[])
+        dispatch(productsResetFilterAction())
+    },[dispatch])
 
     const products = useSelector(({products}) => {
-        if(sales !== undefined){
-            return products.filter(el => el.discont_price != null)
+        if(sales){
+            return products.filter(el => !!el.discont_price)
         }
-        return id ? products.filter(({categoryId})=> +id === categoryId): products
+        return id ? products.filter(({categoryId})=> +id === categoryId) : products
     })
 
     const titleRender = () => {
@@ -39,6 +39,7 @@ const ProductsPage = () => {
                 {
                    products
                    .filter(({show}) => show )
+                   .filter(({discount}) => discount )
                    .map(el => <ProductItem key={el.id} {...el}/>)
                 }
             </div>

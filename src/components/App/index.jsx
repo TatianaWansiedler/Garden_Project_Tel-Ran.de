@@ -18,11 +18,10 @@ function App() {
 
   const dispatch = useDispatch()
   
-
   useEffect(()=>{
     dispatch(asyncCategoriesLoadAction)
     dispatch(asyncProductsLoadAction)
-  },[])
+  },[dispatch])
 
   return (
     <div>
@@ -31,7 +30,7 @@ function App() {
         <Route path='/' element={<MainPage/>}/>
         <Route path='/categories' element={<CategoriesPage/>}/>
         <Route path='/products/all' element={<ProductsPage/>}/>
-        <Route path='/category/:title/:id' element={<ProductsPage/>}/>
+        <Route path='/categories/:title/:id' element={<ProductsPage/>}/>
         <Route path='/sales/:sales' element={<ProductsPage/>}/>
         <Route path='/basket' element={<BasketPage/>}/>
         <Route path='/products/:id' element={<SingleProducPage/>}/>

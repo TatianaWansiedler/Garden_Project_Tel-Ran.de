@@ -17,7 +17,7 @@ const Header = () => {
             <nav className={s.nav}>
                 <NavLink className={changeClass} to='/'>Main Page</NavLink>
                 <NavLink className={changeClass} to='/products/all'>All products</NavLink>
-                <NavLink className={changeClass} to='/sales/all_sales_products'>All sales</NavLink>
+                <NavLink className={changeClass} to='/sales/sales_all'>All sales</NavLink>
             </nav>
 
             <Link to='/basket'>

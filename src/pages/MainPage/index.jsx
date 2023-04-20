@@ -19,7 +19,7 @@ const MainPage = () => {
                 <div className={s.poster_info}>
                     <h1 className={s.poster_title}>Sale </h1>
                     <h3 className={s.poster_subtitle} >New season</h3>
-                    <Link to='/sales/all_sales_products'>
+                    <Link to='/sales/sales_all'>
                         <button className={s.sale_btn}>Sale</button>
                     </Link>
                 </div>
