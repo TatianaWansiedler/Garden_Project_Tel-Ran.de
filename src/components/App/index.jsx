@@ -12,6 +12,7 @@ import { asyncProductsLoadAction } from '../../store/asyncActions/products';
 import CategoriesPage from '../../pages/CategoriesPage';
 import BasketPage from '../../pages/BasketPage';
 import SingleProducPage from '../../pages/SingleProductPage';
+import ScrollToTop from '../../helpers/ScrollToTop';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div>
+      <ScrollToTop/>
       <Header/>
       <Routes>
         <Route path='/' element={<MainPage/>}/>

@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import s from './style.module.css'
 import { useDispatch } from 'react-redux';
-import {productsFilterAction, productsFilterChackboxAction, productsSortAction} from '../../store/reducer/productsReducer'
 import {  useParams } from 'react-router-dom';
+import { searchByPrice, sort, filterDiscount } from '../../store/slices/productsSlice';
 
 
 const Filter = () => {
     const [filters,setFilters] = useState({from:'', to:''})
-    // const [discount,setDiscount] = useState(false)
     const {sales} = useParams()
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(productsFilterAction(filters))
-        // dispatch(productsFilterChackboxAction(discount))
+        dispatch( searchByPrice(filters))
     },[filters, dispatch])
     
-
     const onChangeFilter = (by, data) => {
         setFilters({
             ...filters,
@@ -24,19 +21,27 @@ const Filter = () => {
         })
     }
     const onChangeDiscount = (e) => {
-        console.log(e.target.checked);
-        dispatch(productsFilterChackboxAction(e.target.checked))
+        dispatch(filterDiscount(e.target.checked))
     }
     const onChangeSort = (e) => {
-        dispatch(productsSortAction(+e.target.value))
+        dispatch(sort(+e.target.value))
     }
 
     return (
         <form className={s.filter_form}>
             <div className={s.inputs_price}>
                 <label className={s.label}>Price</label>
-                <input onChange={(e)=>onChangeFilter('from', +e.target.value)} type="number" name="from" placeholder='from' />
-                <input onChange={(e)=>onChangeFilter('to', +e.target.value)} type="number" name="to" placeholder='to' />
+                <input onChange={
+                    (e)=>onChangeFilter('from', +e.target.value)} 
+                    type="number" 
+                    name="from" 
+                    placeholder='from'
+                />
+                <input 
+                    onChange={(e)=>onChangeFilter('to', +e.target.value)}
+                    type="number" 
+                    name="to" 
+                    placeholder='to' />
             </div>
 
             {   

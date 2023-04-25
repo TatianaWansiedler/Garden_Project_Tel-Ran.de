@@ -5,7 +5,7 @@ import CategoryItem from '../../components/CategoryItem';
 
 const CategoriesPage = () => {
 
-    const {categories} = useSelector(state=>state)
+    const categories = useSelector(state=>state.categories.list)
 
     return (
         <div className={s.categories_page}>

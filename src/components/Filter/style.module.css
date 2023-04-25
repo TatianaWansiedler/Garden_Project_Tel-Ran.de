@@ -33,6 +33,7 @@
   border-radius: 7px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 .sort_options select {
   border: 1px solid #000000;
@@ -42,4 +43,6 @@
   font-weight: 500;
   font-size: 16px;
   color: #797979;
+  outline: none;
+  cursor: pointer;
 }

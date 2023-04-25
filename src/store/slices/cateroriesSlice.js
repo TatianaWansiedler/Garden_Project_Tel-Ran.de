@@ -4,11 +4,14 @@ import { createSlice } from '@reduxjs/toolkit'
 export const categoriesSlice = createSlice({
     name: 'caterories',
     initialState: {
-        list: null
+        list: []
     },
     reducers: {
-        getCaterories: (state, action) => {
+        loadCaterories: (state, action) => {
             state.list = action.payload
         }
     } 
 })
+
+export const { loadCaterories } = categoriesSlice.actions
+export default categoriesSlice.reducer

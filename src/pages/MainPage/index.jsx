@@ -11,7 +11,7 @@ import ProductItem from '../../components/ProductItem';
 
 const MainPage = () => {
     const { categories, products } = useSelector(state => state)
-
+    console.log(products.data);
     return (
         <div className={s.main_page}>
             {/* ---Postrer--- */}
@@ -35,7 +35,7 @@ const MainPage = () => {
                 </div>
                 <div className={s.categories}>
                     {   
-                        categories
+                        categories.list
                         .filter((_,i) => i <= 3)
                         .map(item => <CategoryItem key={item.id} {...item}/>)
                     }
@@ -50,7 +50,7 @@ const MainPage = () => {
                 <h2 className={s.sale_blok_title}>Sale</h2>
                 <div className={s.products_on_sale}>
                     {
-                        products
+                        products.data
                         .filter((el) => el.discont_price != null)
                         .filter((_,i)=> i < 3)
                         .map(el => <ProductItem key={el.id} {...el}/>)

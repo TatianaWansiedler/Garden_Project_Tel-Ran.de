@@ -1,21 +1,24 @@
 import React from 'react';
 import s from './style.module.css'
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../../store/slices/basketSlice';
 const ProductItem = ({id,title, price, discont_price,image}) => {
+    const dispatch =useDispatch()
+
     const link = `/products/${id}`
     const disc_percent = (100 - (discont_price*100/price)).toFixed(1)
     
-    const addToBasket = (e) => {
-        e.preventDefault()
-        console.log('ok')
+    const onClickAdd = (e) => {
+        e.preventDefault();
+        dispatch(addToBasket(id))
     }
 
     return (
         <Link className={s.product_item} to={link}>
             <div className={s.picture}>
                 <img src={`http://localhost:3333${image}`} alt={title} />
-                <button onClick={addToBasket} className={s.add_btn}>Add to cart</button>
+                <button onClick={onClickAdd} className={s.add_btn}>Add to cart</button>
             </div>
             <div className={discont_price ? s.prices_blok :''} >
                 {

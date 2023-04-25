@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import s from './style.module.css'
 import { asyncSingleProductLoadAction } from '../../store/asyncActions/singleProduct';
+import { addToBasket } from '../../store/slices/basketSlice';
 
 
 const SingleProducPage = () => {
@@ -14,7 +15,7 @@ const SingleProducPage = () => {
     })
     const { product } = useSelector(state => state)
 
-    const { title, description, discont_price, price, image} = product
+    const { title, description, discont_price, price, image} = product.item
 
     const disc_percent = (100 - (discont_price*100/price)).toFixed(1)
 
@@ -36,7 +37,7 @@ const SingleProducPage = () => {
                             :  <p className={s.no_disc_price}>{price}<span className={s.symbol}>$</span> </p>
                         }
                         </div> 
-                        <button className={s.add_btn}>To cart</button>
+                        <button onClick={()=>dispatch(addToBasket(product.item.id))} className={s.add_btn}>To cart</button>
                     </div>
                     <div className={s.product_descr}>
                         <p className={s.subtitle}>Description</p>
