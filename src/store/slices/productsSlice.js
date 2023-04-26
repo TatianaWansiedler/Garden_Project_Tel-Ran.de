@@ -1,5 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+
+
+export const fetchProducts = createAsyncThunk(
+    'products/fetchProducts',
+    async (_, { rejectWithValue }) => {
+        try {
+            const resp = await fetch('http://localhost:3333/products/all')
+            if (!resp.ok) {
+                throw new Error('Server problem')
+            }
+            const products = await resp.json()
+            return products
+        } catch (error) {
+            rejectWithValue(error.message)
+        }
+
+    }
+)
 
 export const productsSlice = createSlice({
     name: 'products',
@@ -7,30 +25,21 @@ export const productsSlice = createSlice({
         data: []
     },
     reducers: {
-        loadProducts: (state, action) => {
-            state.data = action.payload.map(item => ({
-                ...item,
-                finalPrice: item.discont_price ?? item.price,
-                show: true,
-                discount: true,
-            }))
-        },
-        sort: (state, action) => {
+        sort: (state, { payload }) => {
             state.data.sort((a, b) => {
-                const sortOrder = action.payload === 1 ? 1 : -1;
+                const sortOrder = payload === 1 ? 1 : -1;
                 return sortOrder * (a.finalPrice - b.finalPrice);
             })
         },
-        searchByPrice: (state, action) => {
-            const { from, to } = action.payload
+        searchByPrice: (state, { payload }) => {
+            const { from, to } = payload
             state.data = state.data.map(el => {
                 const inRange = (!from || el.finalPrice >= from) &&
                     (!to || el.finalPrice <= to);
                 return { ...el, show: inRange };
             });
         },
-        filterDiscount: (state, action) => {
-            const { payload } = action
+        filterDiscount: (state, { payload }) => {
             if (payload) {
                 state.data = state.data.map(elem => {
                     if (elem.discont_price == null) {
@@ -46,9 +55,28 @@ export const productsSlice = createSlice({
             state.data = state.data.map(el => ({ ...el, show: true, discount: true }))
         }
 
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchProducts.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchProducts.fulfilled, (state, { payload }) => {
+                state.data = payload.map(item => ({
+                    ...item,
+                    finalPrice: item.discont_price ?? item.price,
+                    show: true,
+                    discount: true,
+                }))
+                state.status = 'resolve'
+            })
+            .addCase(fetchProducts.rejected, (state, { payload }) => {
+                state.status = 'rejected'
+                state.error = payload
+            })
     }
 })
 
-export const { loadProducts, sort, searchByPrice, filterDiscount, resetFilter } = productsSlice.actions
+export const { sort, searchByPrice, filterDiscount, resetFilter } = productsSlice.actions
 
 export default productsSlice.reducer

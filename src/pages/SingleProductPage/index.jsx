@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import s from './style.module.css'
-import { asyncSingleProductLoadAction } from '../../store/asyncActions/singleProduct';
 import { addToBasket } from '../../store/slices/basketSlice';
+import { fetchSingleProduct } from '../../store/slices/singleProductSlice';
 
 
 const SingleProducPage = () => {
@@ -11,8 +11,8 @@ const SingleProducPage = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        dispatch(asyncSingleProductLoadAction(id))
-    })
+        dispatch(fetchSingleProduct(id))
+    },[dispatch, id])
     const { product } = useSelector(state => state)
 
     const { title, description, discont_price, price, image} = product.item

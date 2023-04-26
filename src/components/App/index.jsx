@@ -6,13 +6,13 @@ import Footer from '../Footer';
 import MainPage from '../../pages/MainPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import {useDispatch} from 'react-redux'
-import { asyncCategoriesLoadAction } from '../../store/asyncActions/categories';
 import ProductsPage from '../../pages/ProductsPage';
-import { asyncProductsLoadAction } from '../../store/asyncActions/products';
 import CategoriesPage from '../../pages/CategoriesPage';
 import BasketPage from '../../pages/BasketPage';
 import SingleProducPage from '../../pages/SingleProductPage';
 import ScrollToTop from '../../helpers/ScrollToTop';
+import { fetchCategories } from '../../store/slices/cateroriesSlice';
+import { fetchProducts } from '../../store/slices/productsSlice';
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
   const dispatch = useDispatch()
   
   useEffect(()=>{
-    dispatch(asyncCategoriesLoadAction)
-    dispatch(asyncProductsLoadAction)
+    dispatch(fetchCategories())
+    dispatch(fetchProducts())
   },[dispatch])
 
   return (

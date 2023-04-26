@@ -11,7 +11,7 @@ import ProductItem from '../../components/ProductItem';
 
 const MainPage = () => {
     const { categories, products } = useSelector(state => state)
-    console.log(products.data);
+
     return (
         <div className={s.main_page}>
             {/* ---Postrer--- */}

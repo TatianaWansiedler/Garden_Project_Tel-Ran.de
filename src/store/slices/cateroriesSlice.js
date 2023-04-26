@@ -1,17 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+export const fetchCategories = createAsyncThunk(
+    'caterories/fetchCategories',
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await fetch('http://localhost:3333/categories/all')
+            if (!response.ok) {
+                throw new Error('Server problem')
+            }
+            const data = response.json()
+            return data
+        } catch (error) {
+            rejectWithValue(error.message)
+        }
+
+    }
+)
 
 export const categoriesSlice = createSlice({
     name: 'caterories',
     initialState: {
         list: []
     },
-    reducers: {
-        loadCaterories: (state, action) => {
-            state.list = action.payload
-        }
-    } 
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchCategories.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchCategories.fulfilled, (state, { payload }) => {
+                state.list = payload
+                state.status = 'resolve'
+            })
+            .addCase(fetchCategories.rejected, (state, { payload }) => {
+                state.status = 'rejected'
+                state.error = payload
+            })
+    }
 })
 
-export const { loadCaterories } = categoriesSlice.actions
+
 export default categoriesSlice.reducer

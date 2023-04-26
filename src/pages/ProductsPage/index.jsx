@@ -23,7 +23,6 @@ const ProductsPage = () => {
         return id ? products.data.filter(({categoryId})=> +id === categoryId) : products.data
     })
 
-
     const titleRender = () => {
         if(title) {
             return title
@@ -37,7 +36,7 @@ const ProductsPage = () => {
             <h1 className={s.title}>{titleRender()}</h1>
             <Filter/>
             <div className={s.products_container}>
-                {
+                { 
                    products
                    .filter(({ show }) => show )
                    .filter(({ discount }) => discount )
