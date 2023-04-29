@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import s from './style.module.css'
+import {Badge} from '@mui/material'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+    const {basket} = useSelector(state => state)
+    const totalCount = basket.data.reduce((sum, {count})=> sum + count, 0)
 
     const changeClass = ({isActive}) => isActive ? [s.nav_link, s.active].join(' ') : s.nav_link
 
@@ -21,7 +25,9 @@ const Header = () => {
             </nav>
 
             <Link to='/basket'>
-                <img className={s.basket_icon} src="/images/basket_icon.svg" alt="basket_icon" />
+                <Badge badgeContent={totalCount} color="success">
+                    <img className={s.basket_icon} src="/images/basket_icon.svg" alt="basket_icon" />
+                </Badge>
             </Link>
         </div>
     );

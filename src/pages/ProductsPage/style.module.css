@@ -4,9 +4,9 @@
 }
 .products_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 0.3fr));
+  grid-template-columns: repeat(auto-fit, 300px);
   grid-auto-rows: auto;
-  gap: 35px;
+  gap: 45px;
 }
 .title {
   font-weight: 700;

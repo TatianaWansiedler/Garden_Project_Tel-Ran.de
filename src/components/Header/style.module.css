@@ -33,9 +33,9 @@
   color: #000000;
   padding: 5px 0;
 }
-.active{
-    border-bottom: 2px solid gray;
+.active {
+  border-bottom: 2px solid gray;
 }
-.basket_icon{
-    cursor: pointer;
+.basket_icon {
+  cursor: pointer;
 }
