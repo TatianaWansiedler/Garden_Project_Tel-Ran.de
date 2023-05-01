@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import s from './style.module.css'
 import { useDispatch } from 'react-redux';
 import {  useLocation, useParams } from 'react-router-dom';
-import { searchByPrice, sort, filterDiscount } from '../../store/slices/productsSlice';
+import { searchByPrice, sort, filterDiscount, resetFilter } from '../../store/slices/productsSlice';
 
 
 const Filter = () => {
@@ -14,11 +14,17 @@ const Filter = () => {
 
     useEffect(()=>{
         dispatch( searchByPrice(filters))
-        dispatch(filterDiscount(false))
-        if (location) setDiscount(false)
-    },[location, filters, dispatch])
 
-    
+    },[filters, dispatch])
+
+    useEffect(()=>{
+        dispatch(resetFilter())
+        dispatch(filterDiscount(false))
+        setDiscount(false)
+        filters.from = ''
+        filters.to = ''
+    },[location, dispatch])
+
     const onChangeFilter = (by, data) => {
         setFilters({
             ...filters,
@@ -42,12 +48,15 @@ const Filter = () => {
                     type="number" 
                     name="from" 
                     placeholder='from'
+                    value={filters.from ? filters.from : '' }
                 />
                 <input 
                     onChange={(e)=>onChangeFilter('to', +e.target.value)}
                     type="number" 
                     name="to" 
-                    placeholder='to' />
+                    placeholder='to' 
+                    value={filters.to ? filters.to : '' }
+                    />
             </div>
 
             {   

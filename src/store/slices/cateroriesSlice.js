@@ -8,10 +8,10 @@ export const fetchCategories = createAsyncThunk(
             if (!response.ok) {
                 throw new Error('Server problem')
             }
-            const data = response.json()
+            const data = await response.json()
             return data
         } catch (error) {
-            rejectWithValue(error.message)
+            return rejectWithValue(error.message)
         }
 
     }

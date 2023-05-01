@@ -57,3 +57,10 @@
   outline: none;
   cursor: pointer;
 }
+
+@media (max-width: 960px){
+  .basket_form{
+    width: 500px;
+    margin-top: 0;
+  }
+}

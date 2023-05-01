@@ -1,9 +1,15 @@
-.discount_item {
-  height: 476px;
+.form {
+  width: 100%;
   background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%);
+}
+.discount_item {
+  max-width: 1380px;
+  margin: 20px auto;
+  height: 476px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%); */
 }
 .discount_form_box {
   width: 500px;
@@ -52,4 +58,21 @@
   font-weight: 700;
   font-size: 28.7392px;
   color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .discount_item img {
+    width: 50%;
+  }
+  .discount_info {
+    font-size: 35px;
+  }
+  .discount_info span {
+    font-size: 60px;
+  }
+  .input_tel,
+  .submit_btn {
+    width: 330px;
+    font-size: 16px;
+  }
 }

@@ -55,3 +55,16 @@
   max-width: 1345px;
   margin: 0 auto;
 }
+
+
+@media (max-width: 960px){
+  .title {
+    font-size: 30px;
+  }
+  .tel_number {
+    font-size: 30px;
+  }
+  .link_address {
+    font-size: 30px;
+  }
+}

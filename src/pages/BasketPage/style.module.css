@@ -19,3 +19,11 @@
   text-decoration: none;
   padding: 35px 0;
 }
+
+@media (max-width: 960px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  }
+}

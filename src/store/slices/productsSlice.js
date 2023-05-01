@@ -11,9 +11,14 @@ export const fetchProducts = createAsyncThunk(
                 throw new Error('Server problem')
             }
             const products = await resp.json()
-            return products
+            return products.map(item => ({
+                ...item,
+                finalPrice: item.discont_price ?? item.price,
+                show: true,
+                discount: true,
+            }))
         } catch (error) {
-            rejectWithValue(error.message)
+            return rejectWithValue(error.message)
         }
 
     }
@@ -62,12 +67,7 @@ export const productsSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(fetchProducts.fulfilled, (state, { payload }) => {
-                state.data = payload.map(item => ({
-                    ...item,
-                    finalPrice: item.discont_price ?? item.price,
-                    show: true,
-                    discount: true,
-                }))
+                state.data = payload
                 state.status = 'resolve'
             })
             .addCase(fetchProducts.rejected, (state, { payload }) => {

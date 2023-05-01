@@ -5,14 +5,16 @@ import CategoryItem from '../../components/CategoryItem';
 
 const CategoriesPage = () => {
 
-    const categories = useSelector(state=>state.categories.list)
-
+    const {list, status, error} = useSelector(state=>state.categories)
+    if (status === 'rejected') {
+        alert(error)
+    }
     return (
         <div className={s.categories_page}>
             <h1 className={s.title}>Categories</h1>
             <div className={s.categories}>
                 {
-                    categories.map(el => <CategoryItem key={el.id} {...el}/>)
+                    list.map(el => <CategoryItem key={el.id} {...el}/>)
                 }
             </div>
         </div>

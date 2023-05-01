@@ -15,15 +15,17 @@ const MainPage = () => {
     return (
         <div className={s.main_page}>
             {/* ---Postrer--- */}
-            <div className={s.sale_poster}>
-                <div className={s.poster_info}>
-                    <h1 className={s.poster_title}>Sale </h1>
-                    <h3 className={s.poster_subtitle} >New season</h3>
-                    <Link to='/sales/sales_all'>
-                        <button className={s.sale_btn}>Sale</button>
-                    </Link>
+            <div style={{width: "100%", backgroundColor: "#a1e2eb", margin: "0 auto" }}>
+                <div className={s.sale_poster}>
+                    <div className={s.poster_info}>
+                        <h1 className={s.poster_title}>Sale </h1>
+                        <h3 className={s.poster_subtitle} >New season</h3>
+                        <Link to='/sales/sales_all'>
+                            <button className={s.sale_btn}>Sale</button>
+                        </Link>
+                    </div>
+                    <img src={flowers} alt="" />
                 </div>
-                <img src={flowers} alt="" />
             </div>
             {/* ----Catalog---- */}
             <div className={s.categories_blok}>
