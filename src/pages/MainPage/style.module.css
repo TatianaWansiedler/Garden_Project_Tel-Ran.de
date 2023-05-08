@@ -1,7 +1,7 @@
 .main_page {
   width: 100%;
 }
-/* ------- */
+/* ---Poster---- */
 .sale_poster {
   max-width: 1440px;
   margin: 20px auto;
@@ -46,7 +46,7 @@
   color: black;
   cursor: pointer;
 }
-/* -------- */
+/* ----Catalog---- */
 .categories_blok {
   max-width: 1345px;
   margin: 40px auto 90px;
@@ -63,7 +63,7 @@
 }
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   gap: 30px;
 }
@@ -104,7 +104,7 @@
   .categories {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto;
     gap: 30px;
   }
   .products_on_sale {

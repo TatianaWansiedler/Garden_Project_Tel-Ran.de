@@ -46,3 +46,16 @@
   outline: none;
   cursor: pointer;
 }
+
+@media (max-width: 960px) {
+  .label {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .inputs_price input {
+    width: 70px;
+  }
+  .sort_options select {
+    width: 120px;
+  }
+}

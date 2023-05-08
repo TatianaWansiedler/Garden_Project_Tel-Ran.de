@@ -6,10 +6,14 @@
   gap: 10px;
   color:black;
 }
+.picture{
+  display: flex;
+  align-items:center
+}
 .product_item img {
   width: 100%;
   height: 300px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px;
 }
 .prices_blok {
@@ -70,11 +74,4 @@
 .product_item:hover .add_btn{
   opacity: 1;
   visibility: visible;
-}
-
-@media (max-width: 960px) {
-  .product_item img {
-    height: 100%;
-    border-radius: 10px;
-  }
 }

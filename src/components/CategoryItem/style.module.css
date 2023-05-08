@@ -10,3 +10,9 @@
   padding: 20px 0;
   color: black;
 }
+
+@media (max-width: 960px) {
+  .item img {
+    height: 300px;
+  }
+}

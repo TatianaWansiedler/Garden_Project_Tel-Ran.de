@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './style.module.css'
-import BasketCalculation from '../../components/BasketCalculation';
+import OrderForm from '../../components/OrderForm';
 import BasketItem from '../../components/BasketItem';
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -25,7 +25,7 @@ const BasketPage = () => {
                         }
                     </div>
                 </div>
-                <BasketCalculation/>
+                <OrderForm/>
             </div>
 
         </div>

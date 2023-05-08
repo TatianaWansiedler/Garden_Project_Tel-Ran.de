@@ -4,7 +4,7 @@
 }
 .container {
   display: grid;
-  grid-template-columns: auto 500px;
+  grid-template-columns: auto minmax(350px, 500px);
   gap: 60px;
 }
 .basket_items {
@@ -20,10 +20,13 @@
   padding: 35px 0;
 }
 
-@media (max-width: 960px){
+@media (max-width: 960px) {
+  .basket_page {
+    max-width: 860px;
+  }
   .container {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
   }
 }

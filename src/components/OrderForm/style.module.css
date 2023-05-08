@@ -5,7 +5,7 @@
   gap: 45px;
   width: 100%;
   height: 390px;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   border-radius: 21px;
   margin-top: 95px;
   padding: 25px;
@@ -46,6 +46,10 @@
   font-size: 18px;
   color: #929292;
 }
+.reject {
+  border: 2px solid rgba(250, 73, 108, 0.558);
+  box-shadow: rgba(151, 65, 65, 0.45) 0px 5px 15px;
+}
 .order_btn {
   background: #339933;
   border-radius: 17px;
@@ -58,8 +62,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 960px){
-  .basket_form{
+@media (max-width: 960px) {
+  .basket_form {
     width: 500px;
     margin-top: 0;
   }

@@ -1,8 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const defaultState = JSON.parse(localStorage.getItem('basket')) ?? []
 
 const writeToLocalStorage = (basket) => localStorage.setItem('basket', JSON.stringify(basket))
+
+
+export const fetchBasketOrder = createAsyncThunk(
+    'basket/fetchBasketOrder',
+    async (order, { rejectWithValue, dispatch }) => {
+        try {
+            console.log(order);
+            const response = await fetch('http://localhost:3333/order/send', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(order)
+            })
+            if (!response.ok) {
+                throw new Error(`An error has occured: ${response.status}`)
+            }
+            const data = await response.json()
+            console.log(data);
+            dispatch(clear())
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+
+    }
+)
 
 export const basketSlice = createSlice({
     name: 'basket',
@@ -34,11 +60,27 @@ export const basketSlice = createSlice({
         remove: (state, action) => {
             state.data = state.data.filter(({ id }) => id !== action.payload)
             writeToLocalStorage(state.data)
+        },
+        clear: (state) => {
+            state.data = []
+            writeToLocalStorage(state.data)
         }
-
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchBasketOrder.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchBasketOrder.fulfilled, (state) => {
+                state.status = 'resolve'
+            })
+            .addCase(fetchBasketOrder.rejected, (state, { payload }) => {
+                state.status = 'rejected'
+                state.error = payload
+            })
     }
 })
 
-export const { addToBasket, increment, decrement, remove } = basketSlice.actions
+export const { addToBasket, increment, decrement, remove, clear } = basketSlice.actions
 
 export default basketSlice.reducer

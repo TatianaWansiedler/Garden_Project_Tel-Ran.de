@@ -10,7 +10,7 @@ export const store = configureStore({
         categories: categoriesSlice,
         products: productsSlice,
         product: singleProductSlice,
-        basket: basketSlice
+        basket: basketSlice,
     }
 })
 export default store

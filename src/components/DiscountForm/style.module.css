@@ -2,7 +2,7 @@
   width: 100%;
   background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%);
 }
-.discount_item {
+.disc_item {
   max-width: 1380px;
   margin: 20px auto;
   height: 476px;
@@ -11,7 +11,7 @@
   align-items: center;
   /* background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%); */
 }
-.discount_form_box {
+.disc_form_box {
   width: 500px;
   height: 400px;
   display: flex;
@@ -20,28 +20,44 @@
   align-items: center;
   gap: 40px;
 }
-.discount_info {
+.disc_info {
   font-weight: 700;
   font-size: 55px;
   color: #ffffff;
 }
-.discount_info span {
+.disc_info span {
   font-size: 80px;
 }
 .input_tel {
   width: 470px;
+  height: 80px;
   background: #ffffff;
   border-radius: 25px;
   padding: 25px;
   color: #6c6c6c;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
 }
 .input_tel input {
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 24px;
   padding-left: 5px;
+  font-weight: 500;
+  color: #6c6c6c;
+}
+.input_tel input::placeholder {
+  color: #a0a0a09b;
+  letter-spacing: 2px;
+}
+.required_alert {
+  padding-top: 5px;
+  color: rgba(205, 58, 87, 0.824);
+  font-size: 11px;
+  text-align: center;
+}
+.reject {
+  border: 2px solid rgba(243, 57, 95, 0.955);
 }
 
 .submit_btn {
@@ -59,20 +75,37 @@
   font-size: 28.7392px;
   color: #ffffff;
 }
-
+.submit_btn:active {
+  background-color: #76f07682;
+}
+.submit_btn:hover {
+  box-shadow: rgba(255, 241, 241, 0.25) 0px 14px 28px,
+    rgba(203, 202, 202, 0.22) 0px 10px 10px;
+  transition: 0.3s;
+}
 @media (max-width: 960px) {
-  .discount_item img {
+  .disc_item img {
     width: 50%;
   }
-  .discount_info {
+  .disc_info {
     font-size: 35px;
   }
-  .discount_info span {
+  .disc_info span {
     font-size: 60px;
   }
   .input_tel,
   .submit_btn {
     width: 330px;
-    font-size: 16px;
+    font-size: 18px;
+  }
+  .input_tel {
+    height: 70px;
+  }
+  .input_tel input {
+    font-size: 18px;
+  }
+  .required_alert {
+    padding-top: 10px;
+    font-size: 8px;
   }
 }
