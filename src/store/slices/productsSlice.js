@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-
-
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (_, { rejectWithValue }) => {
@@ -38,11 +36,8 @@ export const productsSlice = createSlice({
         },
         searchByPrice: (state, { payload }) => {
             const { from, to } = payload
-            state.data = state.data.map(el => {
-                const inRange = (!from || el.finalPrice >= from) &&
-                    (!to || el.finalPrice <= to);
-                return { ...el, show: inRange };
-            });
+            console.log(payload);
+            state.data = state.data.map(el => ({ ...el, show: el.finalPrice <= to && el.finalPrice >= from }));
         },
         filterDiscount: (state, { payload }) => {
             if (payload) {

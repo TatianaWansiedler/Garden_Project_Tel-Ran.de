@@ -28,6 +28,10 @@
   font-size: 16px;
   color: #acacac;
 }
+.inputs_price input::-webkit-outer-spin-button,
+.inputs_price input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .chackbox input {
   border: 1px solid #000000;
   border-radius: 7px;

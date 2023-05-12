@@ -38,19 +38,21 @@
   border: 1px solid #000000;
   border-radius: 20px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 24px;
   outline: none;
 }
 .phone_number::placeholder {
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 24px;
   color: #929292;
+  letter-spacing: 2px;
 }
 .reject {
   border: 2px solid rgba(250, 73, 108, 0.558);
   box-shadow: rgba(151, 65, 65, 0.45) 0px 5px 15px;
 }
-.order_btn {
+.order_btn,
+.btn_shop {
   background: #339933;
   border-radius: 17px;
   font-weight: 700;
@@ -61,10 +63,20 @@
   outline: none;
   cursor: pointer;
 }
-
+.btn_shop {
+  width: 70%;
+  height: min-content;
+  align-self: center;
+  text-align: center;
+  border: 2px solid rgba(253, 253, 253, 0.737);
+  box-shadow: rgba(19, 19, 19, 0.45) 0px 5px 15px;
+}
 @media (max-width: 960px) {
   .basket_form {
     width: 500px;
     margin-top: 0;
+  }
+  .btn_shop{
+    width: 50%;
   }
 }
