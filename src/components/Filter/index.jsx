@@ -6,27 +6,27 @@ import { searchByPrice, sort, filterDiscount, resetFilter } from '../../store/sl
 
 
 const Filter = () => {
-    const initFilters = {from: 0, to: Infinity}
-    const [filters,setFilters] = useState(initFilters)
+    const initialFilters = {from: 0, to: Infinity}
+    const [price, setPrice] = useState(initialFilters)
     const [discount, setDiscount] = useState(false)
     const {sales} = useParams()
     const dispatch = useDispatch()
     const location = useLocation()
 
     useEffect(()=>{
-        dispatch(searchByPrice(filters))
-    },[filters, dispatch])
+        dispatch(searchByPrice(price))
+    },[price, dispatch])
 
     useEffect(()=>{
         dispatch(resetFilter())
         dispatch(filterDiscount(false))
         setDiscount(false)
-        setFilters(initFilters)
+        setPrice(initialFilters)
     },[location, dispatch])
 
     const onChangeFilter = (by, data) => {
-        setFilters({
-            ...filters,
+        setPrice({
+            ...price,
             [by]:data
         })
     }
@@ -47,14 +47,14 @@ const Filter = () => {
                     type="number" 
                     name="from" 
                     placeholder='from'
-                    value={filters.from ? filters.from : '' }
+                    value={price.from ? price.from : '' }
                 />
                 <input 
                     onChange={(e)=>onChangeFilter('to', e.target.value === '' ? Infinity : +e.target.value )}
                     type="number" 
                     name="to" 
                     placeholder='to' 
-                    value={filters.to === Infinity ? '' : filters.to}
+                    value={price.to === Infinity ? '' : price.to}
                     />
             </div>
 

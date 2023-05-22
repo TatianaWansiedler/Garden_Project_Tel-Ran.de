@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import s from './style.module.css'
 import { addToBasket } from '../../store/slices/basketSlice';
 import { fetchSingleProduct } from '../../store/slices/singleProductSlice';
+import MobilAccordion from '../../components/MobilAccordion';
 
 
 const SingleProducPage = () => {
@@ -23,25 +24,40 @@ const SingleProducPage = () => {
         <div className={s.product_page}>
         <h1 className={s.product_title}>{title}</h1>
             <div className={s.product_card}>
-                <img className={s.img} src={`http://localhost:3333${image}`} alt={title} />
+                <div className={s.image_container}>
+                    <img className={s.img} src={`http://localhost:3333${image}`} alt={title} />
+                </div>
                 <div className={s.product_info}>
-                    <div className={s.action}>
+                    <div className={s.actions}>
                         <div className={discont_price ? s.prices_blok :''} >
                         {
                             discont_price ?
                             <>
-                                <p className={s.disc_price}>{discont_price}<span className={s.symbol}>$</span> </p>
+                                <p className={s.disc_price}>{discont_price}
+                                    <span className={s.symbol}>$</span> 
+                                </p>
                                 <p className={s.price}>{price}$ </p>
                                 <p className={s.percent}> -{disc_percent}%</p>
                             </>
-                            :  <p className={s.no_disc_price}>{price}<span className={s.symbol}>$</span> </p>
+                            :  <p className={s.no_disc_price}>
+                                    {price}<span className={s.symbol}>$</span> 
+                                </p>
                         }
                         </div> 
-                        <button onClick={()=>dispatch(addToBasket(product.item.id))} className={s.add_btn}>To cart</button>
+                        <button 
+                            onClick={()=>dispatch(addToBasket(product.item.id))} 
+                            className={s.add_btn}>
+                                To cart
+                        </button>
                     </div>
                     <div className={s.product_descr}>
                         <p className={s.subtitle}>Description</p>
-                        <p className={s.text}>{description}</p>
+                         <p className={s.text}>{description}</p>
+                    </div>
+                    <div className={s.mob_descr}>
+                        <MobilAccordion title={'Description'}>
+                            {description}
+                        </MobilAccordion>
                     </div>
                 </div>
             </div>

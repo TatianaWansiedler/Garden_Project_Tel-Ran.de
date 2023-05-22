@@ -22,7 +22,7 @@
 
 @media (max-width: 960px) {
   .basket_page {
-    max-width: 860px;
+    max-width: 95%;
   }
   .container {
     display: flex;

@@ -1,12 +1,11 @@
 import React from 'react';
 import s from './style.module.css'
-import flowers from './flowers_main_page.png'
+import flowers from './media/img.png'
 import { Link } from 'react-router-dom'
 import CategoryItem from '../../components/CategoryItem';
 import { useSelector } from 'react-redux';
 import DiscountForm from '../../components/DiscountForm';
 import ProductItem from '../../components/ProductItem';
-
 
 
 const MainPage = () => {
@@ -15,7 +14,7 @@ const MainPage = () => {
     return (
         <div className={s.main_page}>
             {/* ---Postrer--- */}
-            <div style={{width: "100%", backgroundColor: "#a1e2eb", margin: "0 auto" }}>
+            <div className={s.container_poster}>
                 <div className={s.sale_poster}>
                     <div className={s.poster_info}>
                         <h1 className={s.poster_title}>Sale </h1>
@@ -24,7 +23,7 @@ const MainPage = () => {
                             <button className={s.sale_btn}>Sale</button>
                         </Link>
                     </div>
-                    <img src={flowers} alt="" />
+                    <img src={flowers} alt="image_flowers" />
                 </div>
             </div>
             {/* ----Catalog---- */}

@@ -2,11 +2,16 @@
   width: 100%;
 }
 /* ---Poster---- */
+.container_poster {
+  width: 100%;
+  margin: 0 auto;
+  background: -webkit-linear-gradient(90deg, #0e6d83, #66a8b8);
+  background: linear-gradient(90deg, #0a4f5f, #66a8b8);
+}
 .sale_poster {
   max-width: 1440px;
-  margin: 20px auto;
+  margin: 0 auto;
   height: 600px;
-  background: #a1e2eb;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -22,22 +27,25 @@
   font-weight: 700;
   font-size: 80px;
   color: #ffffff;
+  text-shadow: 4px 6px 5px rgba(23, 23, 23, 0.3);
 }
 .poster_subtitle {
   font-weight: 700;
   font-size: 63px;
   color: #ffffff;
   margin-bottom: 30px;
+  text-shadow: 4px 6px 5px rgba(23, 23, 23, 0.3);
 }
 .sale_poster img {
+  align-self: self-end;
   width: 50%;
-  height: 100%;
+  height: 70%;
 }
 .sale_btn {
   width: 155px;
   height: 80px;
-  background: #ffffff;
-  border-radius: 13px;
+  background: #cecdcd;
+  border-radius: 20px;
   padding: 25px 50px;
   border: none;
   outline: none;
@@ -45,6 +53,13 @@
   font-size: 25px;
   color: black;
   cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.sale_btn:hover {
+  transition: all 0.3s ease 0s;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background: #ffffff;
 }
 /* ----Catalog---- */
 .categories_blok {
@@ -93,7 +108,18 @@
   gap: 25px;
 }
 
+@media (max-width: 1200px) {
+  .categories_blok {
+    width: 95%;
+  }
+  .sale_blok {
+    width: 95%;
+  }
+}
 @media (max-width: 960px) {
+  .sale_poster {
+    padding-left: 0;
+  }
   .poster_info {
     width: 100%;
     align-items: center;
@@ -102,12 +128,31 @@
     display: none;
   }
   .categories {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 30px;
   }
   .products_on_sale {
     grid-template-columns: repeat(auto-fit, 250px);
+  }
+}
+@media (max-width: 700px) {
+  .sale_poster {
+    height: 400px;
+  }
+  .poster_title {
+    font-size: 60px;
+  }
+  .poster_subtitle {
+    font-size: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .categories_blok_header h2 {
+    font-size: 30px;
+  }
+  .categories {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .products_on_sale {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

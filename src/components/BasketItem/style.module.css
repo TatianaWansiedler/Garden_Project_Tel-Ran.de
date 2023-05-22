@@ -66,3 +66,46 @@
 .del_btn {
   align-self: flex-start;
 }
+
+@media (max-width: 690px) {
+  .product_item {
+    padding: 25px 0;
+  }
+  .product_name {
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 30px;
+  }
+  .final_price {
+    font-size: 30px;
+  }
+  .price {
+    font-size: 16px;
+  }
+}
+@media (max-width: 690px) {
+  .product_item {
+    grid-template-columns: 130px minmax(120px, 2fr) minmax(120px, 1fr) auto;
+    grid-template-rows: 130px;
+  }
+}
+@media (max-width: 490px) {
+  .product_item {
+    grid-template-columns: 110px minmax(100px, 2fr) minmax(80px, 1fr) auto;
+    grid-template-rows: 110px;
+    gap: 15px;
+  }
+  .product_name {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 25px;
+  }
+  .prices {
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    justify-content: center;
+  }
+}

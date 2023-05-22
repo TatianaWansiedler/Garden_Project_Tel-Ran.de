@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import Filter from '../../components/Filter/'
 import { useEffect } from 'react';
 import { resetFilter } from '../../store/slices/productsSlice';
+import MobilAccordion from '../../components/MobilAccordion'
 
 
 const ProductsPage = () => {
@@ -19,8 +20,9 @@ const ProductsPage = () => {
     const products = useSelector(({products}) => {
         if(sales){
             return products.data.filter(el => !!el.discont_price)
+        } else{
+            return id ? products.data.filter(({categoryId})=> +id === categoryId) : products.data
         }
-        return id ? products.data.filter(({categoryId})=> +id === categoryId) : products.data
     })
 
     const titleRender = () => {
@@ -34,7 +36,14 @@ const ProductsPage = () => {
     return (
         <div className={s.products_page}>
             <h1 className={s.title}>{titleRender()}</h1>
-            <Filter/>
+            <div className={s.hidden}>
+                <Filter />
+            </div>
+            <div className={s.mob_filter}>
+                <MobilAccordion title={"Filters"}>
+                    {<Filter/>}
+                </MobilAccordion>
+            </div>
             <div className={s.products_container}>
                 { 
                    products

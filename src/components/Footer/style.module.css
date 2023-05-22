@@ -52,12 +52,15 @@
   line-height: 1.5;
 }
 .map {
-  max-width: 1345px;
   margin: 0 auto;
 }
 
 
 @media (max-width: 960px){
+  .info{
+    width: 90%;
+    gap: 50px;
+  }
   .title {
     font-size: 30px;
   }
@@ -66,5 +69,31 @@
   }
   .link_address {
     font-size: 30px;
+  }
+}
+@media (max-width: 700px){
+  .title {
+    font-size: 20px;
+  }
+  .tel_number {
+    font-size: 20px;
+  }
+  .link_address {
+    font-size: 15px;
+  }
+  .schedule {
+    font-size: 16px;
+  }
+  .schedule_time {
+    font-size: 20px;
+  }
+  .map iframe{
+    height: 300px;
+  }
+  .icon_item img{
+    width: 30px;
+  }
+  .icon_item p{
+    font-size: 12px;
   }
 }

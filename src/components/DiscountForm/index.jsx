@@ -23,7 +23,7 @@ const DiscountForm = () => {
     return (
         <div className={s.form}>
             <div className={s.disc_item}>
-                <img src={gnome} alt="gnome" />
+                <img className={s.gnome} src={gnome} alt="gnome" />
                 {
                     !isSubmitSuccessful ?
                     <div className={s.disc_form_box}>
@@ -38,7 +38,7 @@ const DiscountForm = () => {
                             />
                             {
                                 errors.phone?.type === 'required' && 
-                                    <p className={s.required_alert}>
+                                    <p className={s.required}>
                                         This field is required, please type your phone number
                                     </p>
                             } 

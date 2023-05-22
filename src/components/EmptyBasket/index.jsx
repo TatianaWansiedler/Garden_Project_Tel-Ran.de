@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './style.module.css'
-import cart from './cart.png'
+import cart from './cart_empty.svg'
+
 const EmptyBasket = () => {
     return (
         <div className={s.container}>

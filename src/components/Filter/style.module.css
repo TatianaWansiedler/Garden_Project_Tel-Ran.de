@@ -63,3 +63,12 @@
     width: 120px;
   }
 }
+@media (max-width: 700px) {
+  .inputs_price input, .sort_options select {
+    width: 50%
+  }
+  .filter_form {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

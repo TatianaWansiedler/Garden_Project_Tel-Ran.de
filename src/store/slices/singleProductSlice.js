@@ -9,7 +9,6 @@ export const fetchSingleProduct = createAsyncThunk(
                 throw new Error('Server problem')
             }
             const product = await resp.json()
-            console.log(product[0]);
             return product[0]
         } catch (error) {
             rejectWithValue(error.message)

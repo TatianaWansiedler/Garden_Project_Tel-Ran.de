@@ -62,21 +62,61 @@
   border: none;
   outline: none;
   cursor: pointer;
+  transition: background, color;
+  transition-duration: 0.5s;
+}
+.order_btn:hover,
+.btn_shop:hover {
+  color: #339933;
+  background: rgba(224, 223, 223, 0.81);
+  border: 1px solid #080808;
+  box-shadow: rgba(99, 99, 99, 0.45) 0px 5px 15px;
 }
 .btn_shop {
   width: 70%;
   height: min-content;
   align-self: center;
   text-align: center;
-  border: 2px solid rgba(253, 253, 253, 0.737);
   box-shadow: rgba(19, 19, 19, 0.45) 0px 5px 15px;
 }
 @media (max-width: 960px) {
   .basket_form {
-    width: 500px;
+    max-width: 500px;
     margin-top: 0;
   }
-  .btn_shop{
+  .btn_shop {
     width: 50%;
+  }
+}
+@media (max-width: 500px) {
+  .basket_form {
+    gap: 25px;
+    height: 300px;
+  }
+  .inputs {
+    gap: 10px;
+    align-items: center;
+  }
+  .phone_number,
+  .order_btn {
+    padding: 15px;
+    font-size: 18px;
+    width: 90%;
+  }
+  .phone_number::placeholder {
+    font-size: 18px;
+  }
+  .btn_shop,
+  .order_btn {
+    font-size: 20px;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .total_text {
+    font-size: 20px;
+  }
+  .total_sum {
+    font-size: 28px;
   }
 }

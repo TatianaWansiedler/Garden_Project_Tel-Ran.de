@@ -1,6 +1,7 @@
 .form {
   width: 100%;
   background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%);
+  margin: 0 auto;
 }
 .disc_item {
   max-width: 1380px;
@@ -9,7 +10,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%); */
 }
 .disc_form_box {
   width: 500px;
@@ -17,19 +17,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 40px;
 }
 .disc_info {
   font-weight: 700;
   font-size: 55px;
   color: #ffffff;
+  align-self: self-start;
 }
 .disc_info span {
   font-size: 80px;
 }
 .input_tel {
-  width: 470px;
+  width: 100%;
   height: 80px;
   background: #ffffff;
   border-radius: 25px;
@@ -37,22 +37,17 @@
   color: #6c6c6c;
   font-size: 24px;
   font-weight: 500;
-}
-.input_tel {
   border: none;
   outline: none;
-  font-size: 24px;
-  padding-left: 5px;
-  font-weight: 500;
-  color: #6c6c6c;
-  padding: 0 20px;
 }
+
 .input_tel::placeholder {
   color: #a0a0a09b;
   letter-spacing: 2px;
   font-weight: 300;
 }
-.required_alert {
+.required {
+  width: 100%;
   padding-top: 5px;
   color: rgba(255, 255, 255, 0.824);
   font-size: 11px;
@@ -63,7 +58,7 @@
 }
 
 .submit_btn {
-  width: 470px;
+  width: 100%;
   text-align: center;
   border: 2px solid #ffffff;
   outline: none;
@@ -74,7 +69,7 @@
   background-color: transparent;
   cursor: pointer;
   font-weight: 700;
-  font-size: 28.7392px;
+  font-size: 28px;
   color: #ffffff;
 }
 .submit_btn:active {
@@ -110,15 +105,17 @@
   .disc_item img {
     width: 50%;
   }
+  .disc_item {
+    width: 90%;
+  }
   .disc_info {
-    font-size: 35px;
+    font-size: 40px;
   }
   .disc_info span {
-    font-size: 60px;
+    font-size: 65px;
   }
   .input_tel,
   .submit_btn {
-    width: 330px;
     font-size: 18px;
   }
   .input_tel {
@@ -134,5 +131,19 @@
   .notif_text {
     inline-size: 200px;
     font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .disc_info {
+    align-self: center;
+  }
+  .disc_info {
+    font-size: 35px;
+  }
+  .disc_info span {
+    font-size: 55px;
+  }
+  .gnome {
+    display: none;
   }
 }
