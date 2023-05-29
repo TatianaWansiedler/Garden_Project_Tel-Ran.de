@@ -9,7 +9,7 @@ export const fetchGetDiscount = async (phone) => {
             body: JSON.stringify(phone)
         })
         if (!response.ok) {
-            throw new Error(`An error has occured: ${response.status}`)
+            throw new Error(`An error has occured! Try again`)
         }
         const data = await response.json()
         return data

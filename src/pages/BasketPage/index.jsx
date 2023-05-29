@@ -22,7 +22,9 @@ const BasketPage = () => {
                     {
                         basket.data.length ? 
                         <div className={s.basket_items}>
-                            <Link className={s.link_to_shop} to="/products/all">Back to the store &rsaquo;</Link>
+                            <Link className={s.link_to_shop} to="/products/all">
+                                Back to the store &rsaquo;
+                            </Link>
                             <div>
                                 {
                                     data.map(el => <BasketItem key={el.id} {...el}/>)

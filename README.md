@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+## Online Garden Goods Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a web application designed to provide a seamless online shopping experience for customers. It offers a wide range of products and features to make browsing, purchasing, and managing orders effortless.
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+To run the project locally, follow these steps:
 
-### `npm start`
+1. Clone the repository: `git clone git@github.com:HaykInanc/telran_project_backend.git`
+2. Following the instructions, run the local backend for this application
+3. Clone the repository: `git clone git@github.com:TatianaWansiedler/Garden_Project_Tel-Ran.de.git`
+4. Install dependencies: `npm install`
+5. Start the development server: `npm start`
+6. Open your browser and visit http://localhost:3000 to access the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Note: Make sure you have Node.js installed on your system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technologies Used
 
-### `npm test`
+- HTML
+- CSS
+- JavaScript,
+- React.js
+- Redux Toolkit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+- Product Catalog: Browse a vast selection of products with detailed information, including images, descriptions, and prices.
+- Search and Filtering: Easily find products using search functionality and apply filters.
+- Shopping Cart: Add products to the cart for a convenient shopping experience and manage quantities.
+- Promotions and Discounts: Take advantage of the opportunity to receive a discount.
+- User Notifications: Receive updates about order status and promotions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### [Figma Layout](https://www.figma.com/file/yNWvXvjZC0t8d9yBOpeEPy/Garden?node-id=4743%3A989)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contributions to the Online Shop project are welcome! If you find any bugs, issues, or have suggestions for improvements, please feel free to submit a pull request or open an issue on the project repository.
 
-### `npm run eject`
+When contributing, please adhere to the following guidelines:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Fork the repository and create your branch from main.
+2. Make sure your code follows the project's coding style and conventions.
+3. Write clear and concise commit messages.
+4. Provide detailed information in your pull request description.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Contacts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[**LinkedIn**](https://www.linkedin.com/in/tatiana-vanzidler/)
+**Email**: <tatjana@wansidler.com>

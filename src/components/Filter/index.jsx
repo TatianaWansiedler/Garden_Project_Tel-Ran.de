@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import {  useLocation, useParams } from 'react-router-dom';
 import { searchByPrice, sort, filterDiscount, resetFilter } from '../../store/slices/productsSlice';
 
-
 const Filter = () => {
     const initialFilters = {from: 0, to: Infinity}
     const [price, setPrice] = useState(initialFilters)
@@ -57,16 +56,19 @@ const Filter = () => {
                     value={price.to === Infinity ? '' : price.to}
                     />
             </div>
-
             {   
                 !sales && (
                     <div className={s.chackbox}>
                         <label className={s.label}>Discounted items</label>
-                        <input type="checkbox" name="discount" checked={discount} onChange={onChangeDiscount}/>
+                        <input 
+                            type="checkbox" 
+                            name="discount" 
+                            checked={discount} 
+                            onChange={onChangeDiscount}
+                        />
                     </div>
                 )
             }
-
             <div className={s.sort_options}>
                 <label className={s.label}>Sorted</label>
                 <select onChange={onChangeSort} defaultValue='0'>
@@ -74,8 +76,7 @@ const Filter = () => {
                     <option value="1">Price: Low to High</option>
                     <option value="-1">Price: High to Low</option>
                 </select>
-            </div>
-            
+            </div>  
         </form>
     );
 };

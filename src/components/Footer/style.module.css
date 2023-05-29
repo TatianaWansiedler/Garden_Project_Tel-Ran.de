@@ -1,99 +1,90 @@
-.info {
+.footer {
+  background-color: rgba(241, 241, 241, 0.492);
+  border-top: 1px solid rgb(203, 203, 203);
+}
+.container {
   max-width: 1345px;
-  margin: 50px auto;
+  margin: 30px auto;
   display: flex;
   justify-content: space-between;
-  gap: 140px;
-}
-.contact,
-.address {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 50%;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 40px;
-}
-.tel_number {
-  font-weight: 600;
-  font-size: 50px;
-}
-
-.icons {
-  display: flex;
-  gap: 20px;
-}
-.icon_item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  color: black;
-  cursor: pointer;
-}
-.link_address {
-  font-weight: 400;
-  font-size: 40px;
-  text-decoration-line: underline;
-  color: black;
-}
-.schedule {
-  font-weight: 500;
-  font-size: 18px;
-}
-.schedule_time {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.5;
+  gap: 40px;
 }
 .map {
-  margin: 0 auto;
+  width: 55%;
+}
+.contacts {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contacts_item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(116, 116, 116);
+}
+.link {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(116, 116, 116);
+}
+.link:hover {
+  text-decoration: underline;
+}
+.soc_networks {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-top: 1px solid rgb(203, 203, 203);
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(116, 116, 116);
+  padding: 10px;
+  border-radius: 50%;
 }
 
-
-@media (max-width: 960px){
-  .info{
-    width: 90%;
-    gap: 50px;
-  }
-  .title {
-    font-size: 30px;
-  }
-  .tel_number {
-    font-size: 30px;
-  }
-  .link_address {
-    font-size: 30px;
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+    gap: 40px;
   }
 }
-@media (max-width: 700px){
-  .title {
-    font-size: 20px;
+@media (max-width: 960px) {
+  .contacts_item,
+  .link {
+    font-size: 18px;
   }
-  .tel_number {
-    font-size: 20px;
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    margin: 10px auto;
+    gap: 10px;
   }
-  .link_address {
-    font-size: 15px;
+  .map {
+    width: 100%;
   }
-  .schedule {
-    font-size: 16px;
+  .map iframe {
+    height: 250px;
   }
-  .schedule_time {
-    font-size: 20px;
+  .contacts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
-  .map iframe{
-    height: 300px;
-  }
-  .icon_item img{
-    width: 30px;
-  }
-  .icon_item p{
-    font-size: 12px;
+  .soc_networks {
+    padding-top: 10px;
   }
 }

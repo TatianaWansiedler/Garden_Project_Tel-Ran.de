@@ -2,35 +2,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './style.module.css'
 import { useForm } from "react-hook-form";
 import { fetchBasketOrder } from '../../store/slices/basketSlice';
-import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 
-
 const OrderForm = () => {
     const dispatch = useDispatch()
-    const {basket, products} = useSelector(state => state)
-    const { register, handleSubmit,reset, formState:{errors, isSubmitSuccessful } } = useForm();
-    const notify = () => toast.success('Order Successfuly Placed!', {
-        autoClose: 2500,
-    });
+    const { products} = useSelector(state => state)
+    const {data, status, error} = useSelector(state => state.basket)
+    const { register, handleSubmit, formState:{errors, isSubmitSuccessful } } = useForm();
 
-    const onSubmit = data => {
-        const order = {...basket, phone: data.phone}
+    const onSubmit = order => {
+        order = {...data, phone: data.phone}
         dispatch(fetchBasketOrder(order))
     } 
 
-    useEffect(()=>{
-        if (isSubmitSuccessful) {
-            reset({ phone: '' });
-            notify()
-        }
-    },[isSubmitSuccessful, reset])
-
+    if ( isSubmitSuccessful && status === 'resolve') {
+        toast.success('Order Successfuly Placed!', {
+            autoClose: 2500,
+        })
+    } else if (status === 'rejected') {
+        toast.error(error, {
+            autoClose: 2500,
+        })
+    }
+  
     const priceRender = () => {
         if (products.status === 'resolve'){
-            return basket.data.reduce((prev,item)=>{
+            return data.reduce((prev,item)=>{
                 const product = products.data.find(el => el.id === item.id)
                 return prev + item.count * product.finalPrice
             },0)
@@ -38,13 +37,13 @@ const OrderForm = () => {
     }    
 
     const changeClass = () => {
-        return errors.phone?.type && basket.data.length  ? `${s.phone_number} ${s.reject}` : s.phone_number
+        return errors.phone?.type && data.length ? `${s.phone_number} ${s.reject}` : s.phone_number
     }
  
     return (
         <>
             {
-                !basket.data.length
+                !data.length
                 ?
                 <Link to="/products/all" className={s.btn_shop}>
                     Shop Now
@@ -61,14 +60,16 @@ const OrderForm = () => {
                             className={changeClass()} 
                             type="tel" 
                             name="phone" 
-                            {...register("phone", { required: true, pattern: /^([+]?\d{1,2}[-\s])\d{2,4}[-\s]\d{7,10}$/})}
+                            {...register("phone", 
+                            { required: true, pattern: /^([+]?\d{1,3}[-\s])\d{2,4}[-\s]\d{7,10}$/}
+                            )}
                             placeholder='+49 999 9999999'
-                            disabled={!basket.data.length?? true } 
+                            disabled={!data.length?? true } 
                         />
                         <input className={s.order_btn} type="submit" value="Order"/>
                     </div>
                 </form>
-            }
+            } 
             <ToastContainer/>
         </>
 

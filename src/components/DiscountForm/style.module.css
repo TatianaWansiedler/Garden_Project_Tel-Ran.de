@@ -28,6 +28,11 @@
 .disc_info span {
   font-size: 80px;
 }
+.disc_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .input_tel {
   width: 100%;
   height: 80px;
@@ -40,7 +45,6 @@
   border: none;
   outline: none;
 }
-
 .input_tel::placeholder {
   color: #a0a0a09b;
   letter-spacing: 2px;
@@ -50,13 +54,12 @@
   width: 100%;
   padding-top: 5px;
   color: rgba(255, 255, 255, 0.824);
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
 }
 .reject {
   border: 2px solid rgba(243, 57, 95, 0.955);
 }
-
 .submit_btn {
   width: 100%;
   text-align: center;
@@ -121,12 +124,9 @@
   .input_tel {
     height: 70px;
   }
-  .input_tel input {
-    font-size: 18px;
-  }
-  .required_alert {
+  .required {
     padding-top: 10px;
-    font-size: 8px;
+    font-size: 10px;
   }
   .notif_text {
     inline-size: 200px;
@@ -134,16 +134,22 @@
   }
 }
 @media (max-width: 600px) {
+  .input_tel,
+  .submit_btn {
+    width: 85%;
+  }
   .disc_info {
     align-self: center;
   }
+  .gnome {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
   .disc_info {
     font-size: 35px;
   }
   .disc_info span {
     font-size: 55px;
-  }
-  .gnome {
-    display: none;
   }
 }

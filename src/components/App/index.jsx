@@ -9,7 +9,7 @@ import {useDispatch} from 'react-redux'
 import ProductsPage from '../../pages/ProductsPage';
 import CategoriesPage from '../../pages/CategoriesPage';
 import BasketPage from '../../pages/BasketPage';
-import SingleProducPage from '../../pages/SingleProductPage';
+import SingleProductPage from '../../pages/SingleProductPage';
 import ScrollToTop from '../../helpers/ScrollToTop';
 import { fetchCategories } from '../../store/slices/cateroriesSlice';
 import { fetchProducts } from '../../store/slices/productsSlice';
@@ -31,11 +31,11 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/categories' element={<CategoriesPage/>}/>
-        <Route path='/products/all' element={<ProductsPage/>}/>
-        <Route path='/categories/:title/:id' element={<ProductsPage/>}/>
+        <Route path='/categories/:categoryTitle/:categoryID' element={<ProductsPage/>}/>
         <Route path='/sales/:sales' element={<ProductsPage/>}/>
+        <Route path='/products/all' element={<ProductsPage/>}/>
+        <Route path='/product/:id' element={<SingleProductPage/>}/>
         <Route path='/basket' element={<BasketPage/>}/>
-        <Route path='/products/:id' element={<SingleProducPage/>}/>
         <Route path='/*' element={<NotFoundPage/>}/>
       </Routes>
       <Footer/>

@@ -9,7 +9,6 @@ export const fetchBasketOrder = createAsyncThunk(
     'basket/fetchBasketOrder',
     async (order, { rejectWithValue, dispatch }) => {
         try {
-            console.log(order);
             const response = await fetch('http://localhost:3333/order/send', {
                 method: 'POST',
                 headers: {
@@ -18,11 +17,11 @@ export const fetchBasketOrder = createAsyncThunk(
                 body: JSON.stringify(order)
             })
             if (!response.ok) {
-                throw new Error(`An error has occured: ${response.status}`)
+                throw new Error(`An error has occured: ${response.statusText}`)
             }
             const data = await response.json()
-            console.log(data);
             dispatch(clear())
+            return data
         } catch (error) {
             return rejectWithValue(error.message)
         }

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './style.module.css'
-import flowers from './media/img.png'
+import flowers from './img.png'
 import { Link } from 'react-router-dom'
 import CategoryItem from '../../components/CategoryItem';
 import { useSelector } from 'react-redux';
@@ -13,7 +13,6 @@ const MainPage = () => {
 
     return (
         <div className={s.main_page}>
-            {/* ---Postrer--- */}
             <div className={s.container_poster}>
                 <div className={s.sale_poster}>
                     <div className={s.poster_info}>
@@ -23,10 +22,11 @@ const MainPage = () => {
                             <button className={s.sale_btn}>Sale</button>
                         </Link>
                     </div>
-                    <img src={flowers} alt="image_flowers" />
+                    <div className={s.img_container}>
+                        <img className={s.img} src={flowers} alt="image_flowers"/>
+                    </div>
                 </div>
             </div>
-            {/* ----Catalog---- */}
             <div className={s.categories_blok}>
                 <div className={s.categories_blok_header}>
                     <h2>Catalog</h2>
@@ -42,11 +42,7 @@ const MainPage = () => {
                     }
                 </div>
             </div>
-            {/* ----Get discount----*/}
-
             <DiscountForm/>
-
-            {/* ---Sale ---- */}
             <div className={s.sale_blok}>
                 <h2 className={s.sale_blok_title}>Sale</h2>
                 <div className={s.products_on_sale}>

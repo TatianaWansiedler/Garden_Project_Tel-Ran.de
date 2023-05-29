@@ -5,10 +5,8 @@ import CategoryItem from '../../components/CategoryItem';
 
 const CategoriesPage = () => {
 
-    const {list, status, error} = useSelector(state=>state.categories)
-    if (status === 'rejected') {
-        alert(error)
-    }
+    const {list} = useSelector(state=>state.categories)
+
     return (
         <div className={s.categories_page}>
             <h1 className={s.title}>Categories</h1>

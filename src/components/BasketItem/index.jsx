@@ -2,6 +2,7 @@ import React from 'react';
 import s from './style.module.css'
 import { useDispatch } from 'react-redux';
 import { decrement, increment, remove } from '../../store/slices/basketSlice';
+import cross from './cross.svg'
 
 const BasketItem = ({id, title, price, discont_price,image, count}) => {
     const dispatch =useDispatch()
@@ -20,14 +21,20 @@ const BasketItem = ({id, title, price, discont_price,image, count}) => {
                 {
                     discont_price ?
                     <>
-                        <p className={s.final_price}>{discont_price}<span className={s.small_text}>$</span> </p>
+                        <p className={s.final_price}>
+                            {discont_price}
+                            <span className={s.small_text}>$</span> 
+                        </p>
                         <p className={s.price}>{price}$ </p>
                     </>
-                    :  <p className={s.final_price}>{price}<span className={s.small_text}>$</span> </p>
+                    :  <p className={s.final_price}>
+                            {price}
+                            <span className={s.small_text}>$</span> 
+                        </p>
                 }
             </div>
             <button onClick={()=>dispatch(remove(id))} className={s.del_btn}>
-                <img src="/images/cross.svg" alt="delete_icon" />
+                <img src={cross} alt="delete_icon" />
             </button>
         </div>
     );

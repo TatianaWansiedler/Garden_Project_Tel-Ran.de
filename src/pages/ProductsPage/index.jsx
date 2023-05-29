@@ -9,25 +9,27 @@ import { resetFilter } from '../../store/slices/productsSlice';
 import MobilAccordion from '../../components/MobilAccordion'
 
 
+
 const ProductsPage = () => {
-    const {title, id, sales } = useParams()
+    const {categoryTitle, categoryID, sales } = useParams()
     const dispatch = useDispatch()
-    
+
     useEffect(()=>{
         dispatch(resetFilter())
     },[dispatch])
-
-    const products = useSelector(({products}) => {
+    
+    const products = useSelector(({products:{data}}) => {
         if(sales){
-            return products.data.filter(el => !!el.discont_price)
+            return data.filter(el => !!el.discont_price)
         } else{
-            return id ? products.data.filter(({categoryId})=> +id === categoryId) : products.data
+            return categoryID ? data.filter(({categoryId})=> +categoryID === categoryId) : data
         }
     })
+     
 
     const titleRender = () => {
-        if(title) {
-            return title
+        if(categoryTitle) {
+            return categoryTitle
         } else if (sales){
             return "Products with sale"
         } else return "All products"
