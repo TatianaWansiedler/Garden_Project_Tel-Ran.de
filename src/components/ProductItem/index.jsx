@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../../store/slices/basketSlice';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { toast } from 'react-toastify';
 
 const ProductItem = ({id,title, price, discont_price,image}) => {
     const dispatch = useDispatch()
@@ -13,6 +14,9 @@ const ProductItem = ({id,title, price, discont_price,image}) => {
     const onClickAdd = (e) => {
         e.preventDefault();
         dispatch(addToBasket(id))
+        toast.info('The product has been added to your cart.', {
+            autoClose: 2000,
+        })
     }
 
     return (

@@ -4,7 +4,7 @@ import s from './style.module.css'
 import gnome from './gnome.png'
 import { fetchGetDiscount } from '../../services/discountRequest';
 import { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const DiscountForm = () => {
 
@@ -12,8 +12,8 @@ const DiscountForm = () => {
 
     const onSubmit = data => {
         fetchGetDiscount(data.phone)
-            .then(res =>{
-              if(res.status==="OK") {
+            .then(res => {
+              if(res.status === "OK") {
                 toast.success(`Successful! We've sent you code on your phone`, {autoClose: 3500})
               } else {
                 toast.error(res, {autoClose: 3500})
@@ -21,7 +21,7 @@ const DiscountForm = () => {
             })
     } 
 
-    useEffect(()=>{
+    useEffect(() => {
         if (isSubmitSuccessful) {
             reset({ phone: '' });
         }
@@ -59,7 +59,6 @@ const DiscountForm = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer/>
         </div>
     );
 };

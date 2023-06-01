@@ -18,6 +18,15 @@
     width: 95%;
   }
 }
+@media (max-width: 720px) {
+  .title {
+    margin: 40px 0;
+  }
+  .categories_page {
+    padding-top: 90px;
+    margin: 0 auto 90px auto;
+  }
+}
 @media (max-width: 690px) {
   .categories {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

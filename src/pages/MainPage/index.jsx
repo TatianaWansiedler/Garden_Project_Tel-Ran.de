@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './style.module.css'
 import flowers from './img.png'
 import { Link } from 'react-router-dom'
@@ -7,9 +7,12 @@ import { useSelector } from 'react-redux';
 import DiscountForm from '../../components/DiscountForm';
 import ProductItem from '../../components/ProductItem';
 
-
 const MainPage = () => {
     const { categories, products } = useSelector(state => state)
+    
+    useEffect(() => {
+        document.title = "Garden goods store"
+    },[])
 
     return (
         <div className={s.main_page}>

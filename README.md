@@ -46,5 +46,5 @@ When contributing, please adhere to the following guidelines:
 
 #### Contacts
 
-[**LinkedIn**](https://www.linkedin.com/in/tatiana-vanzidler/)
-**Email**: <tatjana@wansidler.com>
+- [**LinkedIn**](https://www.linkedin.com/in/tatiana-vanzidler/)
+- **Email**: <tatjana@wansidler.com>

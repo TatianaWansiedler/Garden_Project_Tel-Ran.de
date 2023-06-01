@@ -2,37 +2,49 @@ import React from 'react';
 import s from './style.module.css'
 import ProductItem from '../../components/ProductItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Filter from '../../components/Filter/'
 import { useEffect } from 'react';
 import { resetFilter } from '../../store/slices/productsSlice';
 import MobilAccordion from '../../components/MobilAccordion'
 
-
-
 const ProductsPage = () => {
-    const {categoryTitle, categoryID, sales } = useParams()
+    const { categoryTitle, categoryID, sales } = useParams()
     const dispatch = useDispatch()
+    const location = useLocation()
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(resetFilter())
     },[dispatch])
-    
-    const products = useSelector(({products:{data}}) => {
-        if(sales){
+
+    useEffect(() => {
+        if (sales) {
+            document.title = "All Sales"
+        } else if (categoryID) {
+            document.title = `Category: ${categoryTitle}`
+        } 
+        else {
+            document.title = "Products"
+        }
+    },[location.pathname])
+
+
+    const products = useSelector(({ products: { data } }) => {
+        if (sales) {
             return data.filter(el => !!el.discont_price)
-        } else{
-            return categoryID ? data.filter(({categoryId})=> +categoryID === categoryId) : data
+        } else {
+            return categoryID ? data.filter(({ categoryId }) => +categoryID === categoryId) : data
         }
     })
      
-
     const titleRender = () => {
-        if(categoryTitle) {
+        if (categoryTitle) {
             return categoryTitle
-        } else if (sales){
+        } else if (sales) {
             return "Products with sale"
-        } else return "All products"
+        } else {
+            return "All products"
+        }
     }
 
     return (

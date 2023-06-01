@@ -4,7 +4,6 @@ import productsReducer from './slices/productsSlice'
 import singleProductReducer from './slices/singleProductSlice'
 import basketReducer from './slices/basketSlice'
 
-
 export const store = configureStore({
     reducer: {
         categories: categoriesReducer,

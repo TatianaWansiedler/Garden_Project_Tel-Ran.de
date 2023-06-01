@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './style.module.css'
 import { useSelector } from 'react-redux';
 import CategoryItem from '../../components/CategoryItem';
 
 const CategoriesPage = () => {
 
-    const {list} = useSelector(state=>state.categories)
+    const { list } = useSelector(state => state.categories)
+
+    useEffect(() => {
+        document.title = "Catalog"
+    },[])
 
     return (
         <div className={s.categories_page}>

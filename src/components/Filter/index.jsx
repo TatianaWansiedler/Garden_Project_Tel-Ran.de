@@ -16,7 +16,7 @@ const Filter = () => {
         dispatch(searchByPrice(price))
     },[price, dispatch])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(resetFilter())
         dispatch(filterDiscount(false))
         setDiscount(false)
@@ -40,16 +40,17 @@ const Filter = () => {
     return (
         <form className={s.filter_form}>
             <div className={s.inputs_price}>
-                <label className={s.label}>Price</label>
+                <span className={s.label}>Price</span>
                 <input onChange={
-                    (e)=>onChangeFilter('from', +e.target.value)} 
+                    (e) => onChangeFilter('from', +e.target.value)} 
                     type="number" 
                     name="from" 
                     placeholder='from'
                     value={price.from ? price.from : '' }
                 />
                 <input 
-                    onChange={(e)=>onChangeFilter('to', e.target.value === '' ? Infinity : +e.target.value )}
+                    onChange={(e) => 
+                        onChangeFilter('to', e.target.value === '' ? Infinity : +e.target.value )}
                     type="number" 
                     name="to" 
                     placeholder='to' 
@@ -58,8 +59,8 @@ const Filter = () => {
             </div>
             {   
                 !sales && (
-                    <div className={s.chackbox}>
-                        <label className={s.label}>Discounted items</label>
+                    <div className={s.checkbox}>
+                        <span className={s.label}>Discounted items</span>
                         <input 
                             type="checkbox" 
                             name="discount" 
@@ -70,8 +71,8 @@ const Filter = () => {
                 )
             }
             <div className={s.sort_options}>
-                <label className={s.label}>Sorted</label>
-                <select onChange={onChangeSort} defaultValue='0'>
+                <span className={s.label}>Sorted</span>
+                <select onChange={ onChangeSort } defaultValue='0'>
                     <option value="0" disabled hidden>Select option</option>
                     <option value="1">Price: Low to High</option>
                     <option value="-1">Price: High to Low</option>

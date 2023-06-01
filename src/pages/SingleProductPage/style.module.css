@@ -63,13 +63,21 @@
 .add_btn {
   max-width: 80%;
   background: #339933;
-  border: 2px solid #339933;
+  border: none;
+  border: 1px solid #339933;
   border-radius: 10px;
   padding: 25px;
   font-weight: 700;
   font-size: 28px;
   color: #ffffff;
   cursor: pointer;
+  transition: background, color;
+  transition-duration: 0.5s;
+}
+.add_btn:hover {
+  color: #339933;
+  background: rgba(224, 223, 223, 0.81);
+  border: 1px solid #080808;
 }
 .product_descr {
   padding: 25px 0;
@@ -118,6 +126,12 @@
   }
   .mob_descr {
     display: block;
+  }
+}
+@media (max-width: 720px) {
+  .product_page {
+    margin: 0 auto 75px;
+    padding-top: 120px;
   }
 }
 

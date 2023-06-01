@@ -30,3 +30,9 @@
     align-items: center;
   }
 }
+@media (max-width: 720px) {
+  .basket_page {
+    padding-top: 120px;
+    margin: 0 auto 90px;
+  }
+}

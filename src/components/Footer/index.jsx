@@ -8,8 +8,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-
 const Footer = () => {
+    
     return (
         <footer className={s.footer}>
             <div className={s.container}>
@@ -25,7 +25,7 @@ const Footer = () => {
                 <div className={s.contacts}>
                     <div className={s.contacts_item}>
                         <PhoneIcon sx={{fontSize: 40, color: '#598a59'}}/>
-                        <p>+49 999 999 99 99</p>
+                        <a className={s.link} href="tel:+499999999999">+49 999 999 99 99</a>
                     </div>
                     <div className={s.contacts_item}>
                         <LocationOnIcon sx={{fontSize: 40, color: '#598a59'}}/>

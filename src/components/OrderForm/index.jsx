@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './style.module.css'
 import { useForm } from "react-hook-form";
 import { fetchBasketOrder } from '../../store/slices/basketSlice';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 const OrderForm = () => {
@@ -28,12 +27,14 @@ const OrderForm = () => {
     }
   
     const priceRender = () => {
-        if (products.status === 'resolve'){
-            return data.reduce((prev,item)=>{
+        if (products.status === 'resolve') {
+            return data.reduce((prev,item) => {
                 const product = products.data.find(el => el.id === item.id)
                 return prev + item.count * product.finalPrice
-            },0)
-        } else return 0
+            },0).toFixed(2)
+        } else {
+            return 0
+        }
     }    
 
     const changeClass = () => {
@@ -64,13 +65,11 @@ const OrderForm = () => {
                             { required: true, pattern: /^([+]?\d{1,3}[-\s])\d{2,4}[-\s]\d{7,10}$/}
                             )}
                             placeholder='+49 999 9999999'
-                            disabled={!data.length?? true } 
                         />
                         <input className={s.order_btn} type="submit" value="Order"/>
                     </div>
                 </form>
             } 
-            <ToastContainer/>
         </>
 
     );

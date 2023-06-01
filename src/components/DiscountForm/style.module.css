@@ -54,7 +54,7 @@
   width: 100%;
   padding-top: 5px;
   color: rgba(255, 255, 255, 0.824);
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
 }
 .reject {
@@ -126,7 +126,7 @@
   }
   .required {
     padding-top: 10px;
-    font-size: 10px;
+    font-size: 13px;
   }
   .notif_text {
     inline-size: 200px;

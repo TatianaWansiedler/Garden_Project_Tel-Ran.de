@@ -6,13 +6,13 @@ import { addToBasket } from '../../store/slices/basketSlice';
 import { fetchSingleProduct } from '../../store/slices/singleProductSlice';
 import MobilAccordion from '../../components/MobilAccordion';
 import NotFoundPage from '../NotFoundPage';
-
+import { toast } from 'react-toastify';
 
 const SingleProductPage = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(fetchSingleProduct(id))
     },[dispatch, id])
     
@@ -20,8 +20,18 @@ const SingleProductPage = () => {
 
     const {title, description, discont_price, price, image} = product?.item ? product?.item : {}
 
-
     const disc_percent = (100 - (discont_price * 100 / price)).toFixed(1)
+
+    useEffect(() => {
+        document.title = `Product: ${title}`
+    },[title])
+
+    const onClickAdd = () => {
+        dispatch(addToBasket(product.item.id))
+        toast.info('The product has been added to your cart.', {
+            autoClose: 2000,
+        })
+    }
 
     return (
         <>
@@ -51,7 +61,7 @@ const SingleProductPage = () => {
                             }
                             </div> 
                             <button 
-                                onClick={()=>dispatch(addToBasket(product.item.id))} 
+                                onClick={ onClickAdd } 
                                 className={s.add_btn}>
                                     To cart
                             </button>

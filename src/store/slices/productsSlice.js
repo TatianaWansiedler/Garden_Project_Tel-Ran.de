@@ -36,7 +36,9 @@ export const productsSlice = createSlice({
         },
         searchByPrice: (state, { payload }) => {
             const { from, to } = payload
-            state.data = state.data.map(el => ({ ...el, show: el.finalPrice <= to && el.finalPrice >= from }));
+            state.data = state.data.map(el =>
+                ({ ...el, show: el.finalPrice <= to && el.finalPrice >= from })
+            );
         },
         filterDiscount: (state, { payload }) => {
             if (payload) {

@@ -2,6 +2,7 @@ import React from 'react';
 import s from './style.module.css'
 import image from './404-Page.svg'
 import { Link } from 'react-router-dom';
+
 const NotFoundPage = () => {
     return (
         <div className={s.page}>
