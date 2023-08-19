@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Garden_Project_Tel-Ran.de/static/css/main.2e21a30e.css",
+    "main.js": "/Garden_Project_Tel-Ran.de/static/js/main.04b174e5.js",
+    "static/media/img.png": "/Garden_Project_Tel-Ran.de/static/media/img.6863debb3008b9d7e39e.png",
+    "static/media/gnome.png": "/Garden_Project_Tel-Ran.de/static/media/gnome.d7aeb6a7be57f95972d3.png",
+    "static/media/logo.svg": "/Garden_Project_Tel-Ran.de/static/media/logo.26c5e2555d7712985c7720286efa26e5.svg",
+    "static/media/404-Page.svg": "/Garden_Project_Tel-Ran.de/static/media/404-Page.7d3c4d85fda2cd5414fe2205a3684812.svg",
+    "static/media/cart_empty.svg": "/Garden_Project_Tel-Ran.de/static/media/cart_empty.efdeacd450b9826f5f9e60c4bbc6a0cc.svg",
+    "static/media/basket_icon.svg": "/Garden_Project_Tel-Ran.de/static/media/basket_icon.88c924444d7c741f85eacaad151ea776.svg",
+    "index.html": "/Garden_Project_Tel-Ran.de/index.html",
+    "static/media/cross.svg": "/Garden_Project_Tel-Ran.de/static/media/cross.c04b75fbc6b2a398782f3ca6525409c2.svg",
+    "main.2e21a30e.css.map": "/Garden_Project_Tel-Ran.de/static/css/main.2e21a30e.css.map",
+    "main.04b174e5.js.map": "/Garden_Project_Tel-Ran.de/static/js/main.04b174e5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e21a30e.css",
+    "static/js/main.04b174e5.js"
+  ]
+}
