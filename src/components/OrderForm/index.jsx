@@ -12,7 +12,10 @@ const OrderForm = () => {
     const { register, handleSubmit, formState:{errors, isSubmitSuccessful } } = useForm();
 
     const onSubmit = order => {
-        order = {...data, phone: data.phone}
+        order = data.map(el => {
+            const price = products.data.find(({ id }) => id === el.id).price
+            return { ...el, price }
+        })
         dispatch(fetchBasketOrder(order))
     } 
 

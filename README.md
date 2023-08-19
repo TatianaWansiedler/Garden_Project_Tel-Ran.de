@@ -1,19 +1,8 @@
 ## Online Garden Goods Store
 
+### This site was built using [GitHub Pages](https://tatianawansiedler.github.io/Garden_Project_Tel-Ran.de).
+
 This is a web application designed to provide a seamless online shopping experience for customers. It offers a wide range of products and features to make browsing, purchasing, and managing orders effortless.
-
-### Installation
-
-To run the project locally, follow these steps:
-
-1. Clone the repository: `git clone git@github.com:HaykInanc/telran_project_backend.git`
-2. Following the instructions, run the local backend for this application
-3. Clone the repository: `git clone git@github.com:TatianaWansiedler/Garden_Project_Tel-Ran.de.git`
-4. Install dependencies: `npm install`
-5. Start the development server: `npm start`
-6. Open your browser and visit http://localhost:3000 to access the application.
-
-- Note: Make sure you have Node.js installed on your system.
 
 ### Technologies Used
 

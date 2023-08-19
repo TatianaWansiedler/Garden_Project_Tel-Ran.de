@@ -15,7 +15,7 @@ const BasketPage = () => {
     })
     useEffect(() => {
         document.title = "Cart"
-    },[])
+    }, [])
 
     return (
         <div className={s.basket_page}>

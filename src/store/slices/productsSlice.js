@@ -1,17 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { URL } from '../../helpers/links'
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (_, { rejectWithValue }) => {
         try {
-            const resp = await fetch('http://localhost:3333/products/all')
+            const resp = await fetch(`${URL}/products/all`)
             if (!resp.ok) {
                 throw new Error('Server problem')
             }
             const products = await resp.json()
             return products.map(item => ({
                 ...item,
-                finalPrice: item.discont_price ?? item.price,
+                finalPrice: item.discount_price ?? item.price,
                 show: true,
                 discount: true,
             }))
@@ -43,7 +44,7 @@ export const productsSlice = createSlice({
         filterDiscount: (state, { payload }) => {
             if (payload) {
                 state.data = state.data.map(elem => {
-                    if (elem.discont_price == null) {
+                    if (elem.discount_price == null) {
                         elem.discount = false
                     }
                     return elem

@@ -51,7 +51,7 @@ const MainPage = () => {
                 <div className={s.products_on_sale}>
                     {
                         products.data
-                        .filter((el) => el.discont_price != null)
+                        .filter((el) => el.discount_price != null)
                         .filter((_,i)=> i < 3)
                         .map(el => <ProductItem key={el.id} {...el}/>)
                     }

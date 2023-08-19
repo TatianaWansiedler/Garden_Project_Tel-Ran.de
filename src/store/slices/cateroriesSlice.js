@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { URL } from '../../helpers/links'
 
 export const fetchCategories = createAsyncThunk(
     'caterories/fetchCategories',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch('http://localhost:3333/categories/all')
+            const response = await fetch(`${URL}/categories/all`)
             if (!response.ok) {
                 throw new Error('Server problem')
             }

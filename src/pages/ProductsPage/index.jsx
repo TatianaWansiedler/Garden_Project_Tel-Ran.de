@@ -31,7 +31,7 @@ const ProductsPage = () => {
 
     const products = useSelector(({ products: { data } }) => {
         if (sales) {
-            return data.filter(el => !!el.discont_price)
+            return data.filter(el => !!el.discount_price)
         } else {
             return categoryID ? data.filter(({ categoryId }) => +categoryID === categoryId) : data
         }

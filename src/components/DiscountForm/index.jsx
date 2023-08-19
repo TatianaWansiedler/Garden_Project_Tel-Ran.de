@@ -8,27 +8,27 @@ import { toast } from 'react-toastify';
 
 const DiscountForm = () => {
 
-    const { register, handleSubmit,reset, formState:{errors, isSubmitSuccessful } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful } } = useForm();
 
     const onSubmit = data => {
-        fetchGetDiscount(data.phone)
+        fetchGetDiscount({ phoneNumber: data.phone })
             .then(res => {
-              if(res.status === "OK") {
-                toast.success(`Successful! We've sent you code on your phone`, {autoClose: 3500})
-              } else {
-                toast.error(res, {autoClose: 3500})
-              }
+                if (!res.clientRegistered) {
+                    toast.success(`Successful! We've sent you code on your phone`, { autoClose: 3500 })
+                } else {
+                    toast.error("This phone number has already been used!", { autoClose: 3500 })
+                }
             })
-    } 
+    }
 
     useEffect(() => {
         if (isSubmitSuccessful) {
             reset({ phone: '' });
         }
-    },[isSubmitSuccessful, reset])
+    }, [isSubmitSuccessful, reset])
 
     const changeClass = () => {
-       return errors.phone?.type === 'pattern' ? `${s.input_tel} ${s.reject}` : s.input_tel
+        return errors.phone?.type === 'pattern' ? `${s.input_tel} ${s.reject}` : s.input_tel
     }
 
     return (
@@ -41,20 +41,20 @@ const DiscountForm = () => {
                         on the first order
                     </p>
                     <form className={s.disc_form} onSubmit={handleSubmit(onSubmit)}>
-                        <input 
-                            className={changeClass()} 
-                            type='tel'  
-                            {...register("phone", 
-                            { required: true,pattern: /^([+]?\d{1,3}[-\s])\d{2,4}[-\s]\d{7,10}$/}
+                        <input
+                            className={changeClass()}
+                            type='tel'
+                            {...register("phone",
+                                { required: true, pattern: /^([+]?\d{1,3}[-\s])\d{2,4}[-\s]\d{7,10}$/ }
                             )}
                             placeholder='+49 999 9999999'
                         />
                         {
-                            errors.phone?.type === 'required' && 
-                                <p className={s.required}>
-                                    This field is required, please type your phone number
-                                </p>
-                        } 
+                            errors.phone?.type === 'required' &&
+                            <p className={s.required}>
+                                This field is required, please type your phone number
+                            </p>
+                        }
                         <input className={s.submit_btn} type="submit" value="Get a discount" />
                     </form>
                 </div>
